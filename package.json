@@ -34,8 +34,12 @@
     "redux-thunk": "^3.1.0",
     "sass": "^1.69.5",
     "sort-by": "^1.2.0",
+    "typescript": "^5.3.3",
     "web-vitals": "^2.1.4",
     "youtube-iframe": "^1.0.3"
+  },
+  "overrides": {
+    "typescript": "^5.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
