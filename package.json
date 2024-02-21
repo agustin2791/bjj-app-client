@@ -17,6 +17,7 @@
     "@types/node": "^16.18.66",
     "@types/react": "^18.2.39",
     "@types/react-dom": "^18.2.17",
+    "aws-amplify": "^6.0.17",
     "axios": "^1.6.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -33,7 +34,6 @@
     "redux-thunk": "^3.1.0",
     "sass": "^1.69.5",
     "sort-by": "^1.2.0",
-    "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "youtube-iframe": "^1.0.3"
   },
@@ -56,7 +56,13 @@
     ]
   },
   "devDependencies": {
+    "@aws-amplify/backend": "^0.12.1",
+    "@aws-amplify/backend-cli": "^0.11.1",
     "@types/google.maps": "^3.54.10",
-    "redux-persist": "^6.0.0"
+    "aws-cdk": "^2.129.0",
+    "aws-cdk-lib": "^2.129.0",
+    "constructs": "^10.3.0",
+    "redux-persist": "^6.0.0",
+    "typescript": "^5.3.3"
   }
 }
