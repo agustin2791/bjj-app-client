@@ -2,10 +2,11 @@ import axios, {AxiosRequestConfig} from "axios";
 
 
 const env = {
-    local: 'http://localhost:8000'
+    local: 'http://localhost:8000',
+    prod: 'https://54.224.242.80:8000'
 }
 const api = axios.create({
-    baseURL: env['local'],
+    baseURL: env['prod'],
     headers: {
         'Content-Type': 'application/json'
     }
