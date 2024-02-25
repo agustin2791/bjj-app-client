@@ -8,7 +8,7 @@ const PrivacyPolicy = () => {
                 <Typography variant="h2">Privacy Policy</Typography>
                 <Divider /><br /><br />
                 <Typography variant="body1">
-                This Privacy Policy outlines how we collect, use, disclose, and protect your personal information when you use our Brazilian Jiu-jitsu Social Media App (BJJ-Meta). Your privacy is important to us, and we are committed to safeguarding the information you provide to us.
+                This Privacy Policy outlines how we collect, use, disclose, and protect your personal information when you use our Brazilian Jiu-jitsu Social Media App (Flo & Roll). Your privacy is important to us, and we are committed to safeguarding the information you provide to us.
                 <br /><br />
                 1. <b>Information We Collect:</b>
                 <br /><br />
@@ -52,9 +52,9 @@ const PrivacyPolicy = () => {
                 <br /><br />
                 8. <b>Contact Us:</b>
                 <br /><br />
-                If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at bjj-meta-info@gmail.com.
+                If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at FloandRoll-info@gmail.com.
                 <br /><br />
-                By using our Brazilian Jiu-jitsu Social Media App (BJJ-Meta), you consent to the collection, use, and disclosure of your personal information as described in this Privacy Policy.
+                By using our Brazilian Jiu-jitsu Social Media App (Flo & Roll), you consent to the collection, use, and disclosure of your personal information as described in this Privacy Policy.
 
                 </Typography>
             </Paper>

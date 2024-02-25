@@ -9,7 +9,7 @@ const TermsAndConditions = () => {
                 <Divider />
                 <br /><br />
                 <Typography variant="body1">
-                Welcome to our Brazilian Jiu-jitsu Social Media App(BJJ-Meta)! Before you start using our platform, please take a moment to carefully read through the following terms and conditions. By accessing or using our app, you agree to be bound by these terms. If you do not agree to these terms, please refrain from using our services.
+                Welcome to our Brazilian Jiu-jitsu Social Media App(Flo & Roll)! Before you start using our platform, please take a moment to carefully read through the following terms and conditions. By accessing or using our app, you agree to be bound by these terms. If you do not agree to these terms, please refrain from using our services.
                 <br /><br />
                 <b>1. Age Requirement:</b>
                 <br /><br />
@@ -56,7 +56,7 @@ const TermsAndConditions = () => {
                 a. These terms and conditions shall be governed by and construed in accordance with the laws of The United States.
                 b. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in The United States.
                 <br /><br />
-                By using our Brazilian Jiu-jitsu Social Media App, you acknowledge that you have read, understood, and agreed to these terms and conditions. If you have any questions or concerns, please contact us at bjj-meta-info@gmail.com.
+                By using our Brazilian Jiu-jitsu Social Media App, you acknowledge that you have read, understood, and agreed to these terms and conditions. If you have any questions or concerns, please contact us at FloandRoll-info@gmail.com.
                 <br /><br />
                 </Typography>
             </Paper>

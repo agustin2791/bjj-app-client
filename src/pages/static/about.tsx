@@ -6,11 +6,11 @@ const AboutUs = () => {
     return (
         <Stack sx={{width: '80%', margin: '10px auto'}}>
             <Paper sx={{width: '100%', padding: '20px'}}>
-                <Typography variant="h2">About BJJ-Meta</Typography>
+                <Typography variant="h2">About Flo & Roll</Typography>
                 <Divider />
                 <br />
                 <Typography variant="body1">
-                    BJJ-Meta is all about Brazilian Jiu-jitsu. It was created for the love of the sport and to try to have a centralized place for everyone to enjoy jiu-jitsu. It is still in Beta and there are a lot of work to be done. Since it’s user based the more users we have the better the site, so spread the word.
+                    Flo & Roll is all about Brazilian Jiu-jitsu. It was created for the love of the sport and to try to have a centralized place for everyone to enjoy jiu-jitsu. It is still in Beta and there are a lot of work to be done. Since it’s user based the more users we have the better the site, so spread the word.
                     <br /><br />
                     In the forums/posts are categorized by channels and based around a certain subject where users can post questions, videos (YouTube video links), and images centered around the channel subject. 
                     <br /><br />
@@ -26,9 +26,9 @@ const AboutUs = () => {
                     <ListItem><b>Tournaments:</b> Have a place where you can search by location and find all nearby tournaments.</ListItem>
                     <ListItem><b>Events:</b> show or announce any BJJ related event. For example, when is the next WNO event and who is competing in it.</ListItem>
                     <ListItem><b>Chat:</b> a chat system to contact a user directly</ListItem>
-                    <ListItem><b>Mobile App:</b> Create a Mobile application for Iphone and Android so you can take BJJ-Meta on the go.</ListItem>
+                    <ListItem><b>Mobile App:</b> Create a Mobile application for Iphone and Android so you can take Flo & Roll on the go.</ListItem>
                 </List>
-                <Typography variant="body1">All subject to change. If you have an idea or suggestion on how to make this site better you can reach us at bjj-meta-info@gmail.com</Typography>
+                <Typography variant="body1">All subject to change. If you have an idea or suggestion on how to make this site better you can reach us at FloandRoll-info@gmail.com</Typography>
                 <br />
                 <Divider />
                 <br />

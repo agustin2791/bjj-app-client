@@ -9,7 +9,7 @@ const CookiePolicy = () => {
                 <Divider />
                 <br /><br />
                 <Typography variant="body1">
-                This Cookie Policy explains how we use cookies and similar technologies on our Brazilian Jiu-jitsu Social Media App (BJJ-Meta). Cookies are small text files that are stored on your device when you visit a website or use a mobile application. By using our app, you consent to the use of cookies in accordance with this policy.
+                This Cookie Policy explains how we use cookies and similar technologies on our Brazilian Jiu-jitsu Social Media App (Flo & Roll). Cookies are small text files that are stored on your device when you visit a website or use a mobile application. By using our app, you consent to the use of cookies in accordance with this policy.
                 <br /><br />
                 <b>1. Types of Cookies We Use:</b>
                 <br /><br />
@@ -43,7 +43,7 @@ const CookiePolicy = () => {
                 <br /><br />
                 <b>6. Contact Us:</b>
                 <br /><br />
-                If you have any questions, concerns, or requests regarding this Cookie Policy or our cookie practices, please contact us at bjj-meta-info@gmail.com.
+                If you have any questions, concerns, or requests regarding this Cookie Policy or our cookie practices, please contact us at FloandRoll-info@gmail.com.
 
                 By using our Brazilian Jiu-jitsu Social Media App, you acknowledge that you have read, understood, and agreed to this Cookie Policy.
 
