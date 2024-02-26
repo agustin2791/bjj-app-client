@@ -6,7 +6,7 @@ const env = {
     prod: 'https://ec2-54-224-242-80.compute-1.amazonaws.com:8000'
 }
 const api = axios.create({
-    baseURL: env['local'],
+    baseURL: env['prod'],
     headers: {
         'Content-Type': 'application/json'
     }
