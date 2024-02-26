@@ -3,10 +3,10 @@ import axios, {AxiosRequestConfig} from "axios";
 
 const env = {
     local: 'http://localhost:8000',
-    prod: 'ec2-54-224-242-80.compute-1.amazonaws.com:8000'
+    prod: 'https://ec2-54-224-242-80.compute-1.amazonaws.com:8000'
 }
 const api = axios.create({
-    baseURL: env['prod'],
+    baseURL: env['local'],
     headers: {
         'Content-Type': 'application/json'
     }
