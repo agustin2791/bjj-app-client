@@ -76,28 +76,29 @@ const ScheduleWeekView: FC<WeekViewProps> = (props) => {
 
         
     }
-    return (<>
-    <Stack spacing={1}>
-        <Grid container spacing={1} alignItems={'stretch'} justifyContent={'space-between'}>
-            {dayOptions.map(d => {return (
-                <Grid key={d} item className="schedule-box"><Typography variant="h5">{d}</Typography></Grid>
-            )})}
-        </Grid>
-        {formatSchedule.map(s => {
-            return (
-            <Grid container key={s.time} spacing={1} alignItems={'stretch'} justifyContent={'space-between'}>
-                <Grid item className="schedule-box">{s.time}</Grid>
-                <Grid item className="schedule-box">{s.monday}</Grid>
-                <Grid item className="schedule-box">{s.tuesday}</Grid>
-                <Grid item className="schedule-box">{s.wednesday}</Grid>
-                <Grid item className="schedule-box">{s.thursday}</Grid>
-                <Grid item className="schedule-box">{s.friday}</Grid>
-                <Grid item className="schedule-box">{s.saturday}</Grid>
-                <Grid item className="schedule-box">{s.sunday}</Grid>
-            </Grid>)
-        })}
-    </Stack>
-    </>)
+    return (
+    <div className="schedule-container">
+        <Stack spacing={1} sx={{minWidth: 1200}}>
+            <Grid container spacing={1} alignItems={'stretch'} justifyContent={'space-between'}>
+                {dayOptions.map(d => {return (
+                    <Grid key={d} item className="schedule-box"><Typography variant="h5">{d}</Typography></Grid>
+                )})}
+            </Grid>
+            {formatSchedule.map(s => {
+                return (
+                <Grid container key={s.time} spacing={1} alignItems={'stretch'} justifyContent={'space-between'}>
+                    <Grid item className="schedule-box">{s.time}</Grid>
+                    <Grid item className="schedule-box">{s.monday}</Grid>
+                    <Grid item className="schedule-box">{s.tuesday}</Grid>
+                    <Grid item className="schedule-box">{s.wednesday}</Grid>
+                    <Grid item className="schedule-box">{s.thursday}</Grid>
+                    <Grid item className="schedule-box">{s.friday}</Grid>
+                    <Grid item className="schedule-box">{s.saturday}</Grid>
+                    <Grid item className="schedule-box">{s.sunday}</Grid>
+                </Grid>)
+            })}
+        </Stack>
+    </div>)
 }
 
 export default ScheduleWeekView

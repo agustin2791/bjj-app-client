@@ -2,6 +2,8 @@ import { Box, Grid, List, ListItem, Paper, Stack, Typography } from "@mui/materi
 import MapView from "../../components/adacemy/map";
 import FindDetails from "../../components/adacemy/map/findDetails";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 type detailsProps = {
     name: string,
@@ -25,6 +27,7 @@ const FindAcademy = () => {
     const [hasFocus, setHasFocus] = useState(false)
     const [findInMap, setFindInMap] = useState<{name: string, address: string}>()
     const [hasMap, setHasMap] = useState(false)
+    const screen_size = useSelector((state: RootState) => state.auth.screen_size)
 
     useEffect(() => {
         if (academyFocus !== defaultFocus) setHasFocus(true)
@@ -65,19 +68,25 @@ const FindAcademy = () => {
 
     return (
         <Box sx={{height: 'calc(100% - 95px)', }}>
-            <Grid container sx={{height: "100%"}} alignItems={{sm: 'stretch'}} spacing={2}>
-                <Grid item sx={{padding: '20px'}} sm={12} md={hasMap ? 6 : 12}>
+            <Grid container sx={{height: "100%"}} alignItems={{sm: 'stretch'}} spacing={screen_size === 'lg' ? 2 : 4}>
+                <Grid item sx={{padding: '20px', height: screen_size === 'lg' ? '100%' : '450px'}} xs={12} md={hasMap ? 6 : 12}>
                     {!hasMap && 
                     <Typography variant='h4'>Search for an Academy</Typography>}
-                    <MapView multiple={true} showDetails={FocusOnAcademy} pushAcademyList={setFoundAcademies} selectAcademyByAddress={findInMap} />
+                    <MapView 
+                        multiple={true} 
+                        showDetails={FocusOnAcademy} 
+                        pushAcademyList={setFoundAcademies} 
+                        selectAcademyByAddress={findInMap}
+                        width={screen_size === 'lg' ? '' : '100%'}
+                        height={screen_size === 'lg' ? '' : '348px'} />
                 </Grid>
                 {hasMap && 
                 <Grid item sm={12} alignSelf={'center'} md={6} sx={{overflow: 'hidden', height: '100%'}}>
                     <Stack spacing={3} sx={{height: '100%'}}>
-                        <Paper sx={{overflow: 'auto', height: hasFocus ? '70%' : '0%'}}>
+                        <Paper sx={{overflow: 'auto', height: hasFocus ? screen_size !== 'lg' ? '60vh' : '70%' : '0%'}}>
                             {hasFocus && <FindDetails {...academyFocus} />}
                         </Paper>
-                        <Paper sx={{overflow: 'auto', height: hasFocus ? '30%' : '100%'}}>
+                        <Paper sx={{overflow: 'auto', height: hasFocus ? screen_size !== 'lg' ? '60vh' : '30%' : '100%'}}>
                         <List className="academy-list-container" >
                             {academiesFound.map(f => {
                                 return (

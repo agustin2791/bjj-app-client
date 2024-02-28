@@ -1,13 +1,15 @@
 import { useState, FC, useEffect } from 'react'
-import { Card, Modal, Stack, ListItem, Button, ButtonGroup, Box, Chip } from '@mui/material'
+import { Card, Modal, Stack, ListItem, Button, ButtonGroup, Box, Chip, IconButton } from '@mui/material'
 import { ForumEntry, Comment } from "../../utils/types_interfaces";
 import CommentReply from './comment';
 import ReplyForm from './replyForm';
 import { VoteAPI, newComment } from '../../utils/forum-utils';
-import { ThumbDown, ThumbUp } from '@mui/icons-material';
+import { ArrowBack, ThumbDown, ThumbUp } from '@mui/icons-material';
 import { load as yt_loader } from 'youtube-iframe';
 import { Link } from 'react-router-dom';
 import PostImages from '../../components/forum/postImages';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 const YouTubeIframeLoader = require('youtube-iframe')
 // const tag = document.createElement('script')
@@ -25,6 +27,7 @@ type PostProps = {
 const Post: FC<PostProps> = ({ entry, open, logged_in, closeModal, updateVote }) => {
     const [toggleReply, setToggleReply] = useState<boolean>(false)
     const [replyComments, setComments] = useState<Comment[]>(entry.replies)
+    const screenSize = useSelector((state: RootState) => state.auth.screen_size)
 
     useEffect(function () {
         if (entry.replies) {
@@ -74,17 +77,17 @@ const Post: FC<PostProps> = ({ entry, open, logged_in, closeModal, updateVote })
     
     return (
         <Modal open={open}
+            className={screenSize}
             onClose={() => {closeModal()}}>
             <Card className="post-card-container">
                 <Stack className="post-container" spacing={2}>
-                    <ListItem>
-                        <div className="post-title">{entry.title}</div>
-                        <div className="post-author">
-                            channel: <Link to={`/posts/${typeof entry.channel === 'string' ? entry.channel : entry.channel.slug}`}>{typeof entry.channel === 'string' ? entry.channel : entry.channel.category} </Link> 
-                            
-                            user: <Link to={`/profile/${entry.author?.username}`}>{typeof entry.author === 'string' ? entry.author : entry.author?.username}</Link>
-                        </div>
-                    </ListItem>
+                    <div className="post-back"><IconButton onClick={() => {closeModal()}}><ArrowBack /></IconButton></div>
+                    <div className="post-title">{entry.title}</div>
+                    <div className="post-author">
+                        channel: <Link to={`/posts/${typeof entry.channel === 'string' ? entry.channel : entry.channel.slug}`}>{typeof entry.channel === 'string' ? entry.channel : entry.channel.category} </Link> 
+                        
+                        user: <Link to={`/profile/${entry.author?.username}`}>{typeof entry.author === 'string' ? entry.author : entry.author?.username}</Link>
+                    </div>
                     {entry.images && entry.images.length > 0 && <ListItem><Box sx={{margin: '10px auto'}}><PostImages images={entry.images} /></Box></ListItem>}
                     {entry.embedded && entry.embedded_type === 'video' &&
                     <ListItem>

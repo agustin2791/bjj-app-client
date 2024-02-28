@@ -5,14 +5,16 @@ interface authState {
     user: Object,
     is_logged_in: boolean,
     last_login: string,
-    profile: Profile
+    profile: Profile,
+    screen_size: string
 }
 
 const initialState: authState = {
     user: {},
     is_logged_in: false,
     last_login: '',
-    profile: {} as Profile
+    profile: {} as Profile,
+    screen_size: 'lg'
 }
 
 const authReducer = createSlice({
@@ -38,9 +40,12 @@ const authReducer = createSlice({
             state.is_logged_in = initialState.is_logged_in
             state.last_login = initialState.last_login
             localStorage.clear()
+        },
+        set_screen_size: (state, action) => {
+            state.screen_size = action.payload
         }
     }
 })
 
-export const { update_user, logout, set_profile } = authReducer.actions
+export const { update_user, logout, set_profile, set_screen_size } = authReducer.actions
 export default authReducer.reducer

@@ -54,7 +54,7 @@ const AcademyDetails = () => {
             
             <Grid item sm={12} md={10} sx={{margin: '10px auto'}}>
                 
-                <Typography variant="h1">{academy.name}</Typography>
+                <Typography variant="h2">{academy.name}</Typography>
                 <Grid container spacing={2} alignItems='stretch'>
                     <Grid item sm={12} md={6}>
                         <Paper sx={{padding: '20px', height: '100%'}}>
@@ -67,7 +67,7 @@ const AcademyDetails = () => {
                             </Typography>
                         </Paper>
                     </Grid>
-                    <Grid item sm={12} md={6}>
+                    <Grid item xs={12} md={6}>
                         <Paper sx={{padding: '20px'}}>
                             <MapView multiple={false} height="300px" location={academy.location ? academy.location : undefined} />
                         </Paper>
@@ -76,7 +76,8 @@ const AcademyDetails = () => {
                     <Grid item sm={12}>
                         <InstructorList read_only={true} instructors={instructors} />
                     </Grid>}
-                    {fullSchedule && <Grid item sm={12}>
+                    {fullSchedule && 
+                    <Grid item sm={12}>
                         <Paper sx={{padding: '20px'}}>
                             <Typography variant='h4'>Schedule</Typography><br />
                             <ScheduleWeekView schedule={fullSchedule} />

@@ -1,5 +1,5 @@
 import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
-import { Stack, Button, Modal, Box, Fab} from '@mui/material'
+import { Stack, Button, Modal, Box, Fab, Pagination} from '@mui/material'
 import NewPost from './newPostForm';
 import { newPost as postApi, getAllPosts, VoteAPI, toggleChannelSubscription, getPostById, uploadPostImages } from '../../utils/forum-utils';
 import { ForumEntry, ForumEntryBus, Comment, User, Profile } from '../../utils/types_interfaces';
@@ -94,6 +94,7 @@ const Forum = () => {
     const [isSubscribed, setIsSubscribed] = useState(false)
     const [currentPagination, setCurrentPagination] = useState(0)
     const [hasMorePosts, setHasMorePosts] = useState(true)
+    const [totalDocs, setTotalDocs] = useState(0)
     const user = useSelector((state: RootState) => state.auth.user) as User
     const profile = useSelector((state: RootState) => state.auth.profile) as Profile
     const is_logged_in: boolean = useSelector((state: RootState) => state.auth.is_logged_in)
@@ -114,10 +115,13 @@ const Forum = () => {
     
     const getInitPosts = async () => {
         const allow_nsfw = Object.keys(profile).includes('is_adult') ? profile.is_adult : false
-        let allPosts:ForumEntry[] = await getAllPosts(channel, post_id, currentPagination, 10, allow_nsfw ? allow_nsfw : false)
+        let data_return:any = await getAllPosts(channel, post_id, currentPagination, 10, allow_nsfw ? allow_nsfw : false)
+
+        let allPosts: ForumEntry[] = data_return.docs
         checkSub()
 
         setForumList(allPosts)
+        setTotalDocs(data_return.total_docs as number)
         setInitForumCall(true)
         if (post_id) {
             console.log('has post id')
@@ -138,6 +142,17 @@ const Forum = () => {
         }
     }
 
+    const changePage = async (event: ChangeEvent<unknown>, value: number) => {
+        setCurrentPagination(value - 1)
+        const allow_nsfw = Object.keys(profile).includes('is_adult') ? profile.is_adult : false
+        let data_return:any = await getAllPosts(channel, post_id, value - 1, 10, allow_nsfw ? allow_nsfw : false)
+        let allPosts: ForumEntry[] = data_return.docs
+        setForumList(allPosts)
+        let content = document.getElementById('main-content')
+        if (content) {
+            content.scrollTo(0,0)
+        }
+    }
     const postNewForumEntry = async (event: FormEvent<HTMLFormElement>) => {
         // have an api to add/create a post
         event.preventDefault()
@@ -331,6 +346,7 @@ const Forum = () => {
                     logged_in={is_logged_in}
                     closeModal={toggleViewingEntry} 
                     updateVote={updateFocusVote} />}
+            <Pagination count={Math.ceil(totalDocs/10)} page={currentPagination + 1} onChange={changePage} />
         </Stack>
     )
 }

@@ -28,6 +28,10 @@
     border: solid thin #333;
     text-align: center;
 }
+.schedule-container {
+    max-width: calc(100vw - 10px);
+    overflow: scroll;
+}
 // .details-container {
 //     position: absolute;
 //     background: #fff;
