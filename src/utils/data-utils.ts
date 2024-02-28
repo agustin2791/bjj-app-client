@@ -6,7 +6,7 @@ export const getData = async <T>(
     password: string
 )
 : Promise<T> => {
-    return await api.post(url, {username, password}).then((res: AxiosResponse) => {
+    return await api.post('/auth/login', {username, password}).then((res: AxiosResponse) => {
         const body = res.data
         console.log('login body ', body)
         localStorage.setItem('accessToken', body.token)
@@ -29,7 +29,7 @@ export const registerUser = async <T>(
     password: string
 )
 : Promise<T> => {
-    return await api.post(url,
+    return await api.post('/auth/register',
         {username, email, password}
     ).then((res: AxiosResponse) => {
         const body = res.data

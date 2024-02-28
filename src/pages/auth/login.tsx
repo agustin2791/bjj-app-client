@@ -50,7 +50,7 @@ const Login = () => {
       try {
         // make api call
         const res: LoginReturn = await getData(
-          'http://localhost:8000/auth/login', username, password
+          '/auth/login', username, password
         )
         dispatch(update_user(res.user))
         setUser(res.user);

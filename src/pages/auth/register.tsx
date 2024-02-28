@@ -46,7 +46,7 @@ const Registration = () => {
         try {
             // make api call
             const res: LoginReturn = await registerUser(
-                'http://localhost:8000/auth/register', username, email, password
+                '/auth/register', username, email, password
             )
             console.log('res')
             dispatch(update_user(res.user))
