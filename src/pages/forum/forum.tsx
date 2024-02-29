@@ -284,7 +284,7 @@ const Forum = () => {
         dispatch(set_profile(profile_update))
     }
 
-    if (forumList.length <= 0 && !initForumCall) {
+    if (!initForumCall) {
         getInitPosts()
     }
 
