@@ -6,7 +6,7 @@ const env = {
     prod: 'https://bjj-flo-roll-api.floandroll.com/'
 }
 const api = axios.create({
-    baseURL: env['local'],
+    baseURL: env['prod'],
     headers: {
         'Content-Type': 'application/json'
     }
