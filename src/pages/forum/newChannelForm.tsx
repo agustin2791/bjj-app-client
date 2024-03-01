@@ -1,10 +1,10 @@
 import { Button, FormControl, TextField } from "@mui/material"
-import { ChangeEvent, FormEvent, useState } from "react"
+import { ChangeEvent, FC, FormEvent, useState } from "react"
 import { useSelector } from "react-redux"
 import { RootState } from "../../store"
 import { User } from "../../utils/types_interfaces"
 import { CreateChannel } from "../../utils/forum-utils"
-import { redirect, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 interface IChannel {
     category: string,
@@ -18,7 +18,12 @@ interface newChannelInputs {
 const defaultChannelForm: newChannelInputs = {
     category: ''
 }
-const NewChannelForm = () => {
+
+type channelFormProps = {
+    closeForm: Function
+}
+const NewChannelForm:FC<channelFormProps> = (props) => {
+    const { closeForm } = props
     const [newChannel, setNewChannel] = useState<newChannelInputs>(defaultChannelForm);
     const navigate = useNavigate()
     const user = useSelector((state: RootState) => state.auth.user) as User
@@ -38,7 +43,8 @@ const NewChannelForm = () => {
             const new_channel = await CreateChannel(newChannel.category, user_id) as IChannel
             if (new_channel.slug) {
                 // navigate()
-                return redirect(`/posts/${new_channel.slug}`)
+                navigate(`/posts/${new_channel.slug}`)
+                closeForm()
             } else {
                 console.log('channel already exists')
             }
@@ -62,7 +68,6 @@ const NewChannelForm = () => {
                     onChange={(e) => {handleFormChange(e)}} />
             </FormControl>
             <br /><br />
-            {newChannel.category}
             <Button type="submit" variant="outlined">Submit</Button>
         </form>
     )

@@ -87,7 +87,7 @@ const Navigation = () => {
                         <>
                             <Button onClick={toggleNewChannel} color="primary">Create New Channel</Button>
                             <Modal open={newChannel} onClose={toggleNewChannel}>
-                                <Box className="modal"><NewChannelForm /></Box>
+                                <Box className="modal"><NewChannelForm closeForm={() => toggleNewChannel()} /></Box>
                             </Modal>
                         </>
                     }

@@ -9,6 +9,7 @@ declare module '@mui/material/styles' {
     interface PaletteOptions {
         navBtn?: PaletteColorOptions
     }
+    
 }
 
 declare module '@mui/material/Button' {
@@ -17,6 +18,17 @@ declare module '@mui/material/Button' {
     }
 }
 
+declare module '@mui/material/Chip' {
+    interface ChipPropsColorOverrides {
+        navBtn: true
+    }
+}
+
+declare module '@mui/material/TextField' {
+    interface TextFieldPropsColorOverrides {
+        navBtn: true
+    }
+}
 const theme = createTheme({
     palette: {
         navBtn: {
